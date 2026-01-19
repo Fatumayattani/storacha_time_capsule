@@ -1,8 +1,8 @@
 {
   "name": "storacha_time_capsule",
   "version": "1.0.0",
-  "description": "This project is a **Time Capsule built as a static website**, with **Storacha as the storage backend**.",
-  "main": "index.js",
+  "description": "Time Capsule built as a static website, with Storacha as the storage backend.",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,16 +10,13 @@
     "type": "git",
     "url": "git+https://github.com/Fatumayattani/storacha_time_capsule.git"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "module",
   "bugs": {
     "url": "https://github.com/Fatumayattani/storacha_time_capsule/issues"
   },
   "homepage": "https://github.com/Fatumayattani/storacha_time_capsule#readme",
   "dependencies": {
     "@storacha/client": "^2.0.0",
+    "dotenv": "^17.2.3",
     "files-from-path": "^1.1.4"
   }
 }
