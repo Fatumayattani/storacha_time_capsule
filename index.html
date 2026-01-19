@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Storacha Time Capsule</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      max-width: 720px;
+      margin: 3rem auto;
+      line-height: 1.6;
+    }
+    .sealed {
+      color: #999;
+      font-style: italic;
+    }
+    h1{
+        color: red;
+    }
+  </style>
+</head>
+<body>
+  <h1 id="title"></h1>
+  <p id="description"></p>
+  <div id="content"></div>
+
+  <script>
+    async function loadCapsule() {
+      const capsule = await fetch('./capsule.json').then(r => r.json())
+      const now = new Date()
+      const openAt = new Date(capsule.open_at)
+
+      document.getElementById('title').textContent = capsule.title
+      document.getElementById('description').textContent = capsule.description
+
+      if (now < openAt) {
+        document.getElementById('content').innerHTML =
+          '<p class="sealed">This time capsule is sealed until ' + openAt.toISOString() + '</p>'
+        return
+      }
+
+      const message = await fetch('./message.md').then(r => r.text())
+      document.getElementById('content').innerHTML =
+        '<pre>' + message + '</pre>'
+    }
+
+    loadCapsule()
+  </script>
+</body>
+</html>
