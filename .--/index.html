@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Storacha Time Capsule</title>
+  </head>
+  <body>
+    <main>
+      <h1>Time Capsule</h1>
+      <p>Write a message to your future self. Lock it. Come back later.</p>
+
+      <form id="capsule-form">
+        <label>
+          Unlock date
+          <input type="date" id="unlock-date" required />
+        </label>
+
+        <label>
+          Secret phrase
+          <input type="password" id="passphrase" required />
+        </label>
+
+        <label>
+          Message
+          <textarea id="message" rows="6" required></textarea>
+        </label>
+
+        <button type="submit">Lock capsule</button>
+      </form>
+
+      <section id="status"></section>
+
+      <section>
+        <h2>Unlock</h2>
+        <input type="password" id="unlock-passphrase" />
+        <button id="unlock-btn">Try unlock</button>
+        <pre id="reveal"></pre>
+      </section>
+    </main>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
+
